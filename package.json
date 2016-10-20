@@ -1,0 +1,26 @@
+{
+  "name": "cs-desafio-node",
+  "version": "1.0.0",
+  "description": "api de login/logout",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "allan egidio",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-nodemon": "^2.2.1",
+    "jshint-stylish": "^2.2.1",
+    "jsonwebtoken": "^7.1.9",
+    "md5": "^2.2.1",
+    "mongoose": "^4.6.4"
+  },
+  "devDependencies": {
+    "gulp-jshint": "^2.0.1",
+    "jshint": "^2.9.3"
+  }
+}
