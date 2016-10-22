@@ -5,11 +5,8 @@ var auth = require('../security/auth.js');
 
 var router = express.Router();
 
-router.post('/users/create', auth.authorize, userController.createUser);
-router.get('/users', auth.authorize, userController.getAllUsers);
-router.get('/users/:id', auth.authorize, userController.getUserById);
-router.put('/users/update/:id', auth.authorize, userController.updateUserById);
-
-router.post('/login', accountController.authenticate);
+router.post('/singup', userController.singupCreateUser);
+router.post('/singin', userController.getUserAndLogin);
+router.get('/seachUser/:id', auth.authorize, userController.seachUser);
 
 module.exports = router;

@@ -20,12 +20,7 @@ exports.authenticate = function(req, res) {
         var token = auth.signIn(user);
 
         res.status(200).json({
-            token: token,
-            user: {
-                id: user._id,
-                email: user.email,
-                senha: user.senha
-            }
+            token: token
         });
     });
 };
