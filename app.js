@@ -16,6 +16,12 @@ app.get('/', function(req, res){
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api', routes);
+app.use(function(req, res, next){
+    if(res.status(404)) {
+    res.json({erro: 'Essa rota não existe'});
+    return;
+  }
+});
 
 app.listen(port, function(){
   console.log('Gulp is running my app on  PORT: ' + port);

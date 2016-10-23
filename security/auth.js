@@ -9,7 +9,7 @@ exports.signIn = function(user) {
 }
 
 exports.authorize = function(req, res, next) {
-    var token = req.headers['x-acess-token'];
+    var token = req.headers['Bearer'];
     if (!token) {
         res.status(401).json({message: 'Acesso restrito'});
     } else {

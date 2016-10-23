@@ -8,13 +8,13 @@ exports.singupCreateUser = function(req, res) {
     }, function(error, user){
       if(error){
         res.status(500);
-        res.json({error: error, message: 'House um erro ao procurar o usuário.'});
+        res.json({error: 'House um erro ao procurar o usuário.'});
         return;
       }
 
       if(user){
         res.status(404);
-        res.json({message: 'E-mail já existente'});
+        res.json({error: 'E-mail já existente'});
         return;
       }
 
@@ -29,7 +29,7 @@ exports.singupCreateUser = function(req, res) {
 
         user.save(function(error) {
             if (error) {
-                res.status(500).json({error: error, message: 'Não foi possível criar o usuário'});
+                res.status(500).json({ error: 'Não foi possível criar o usuário'});
                 return;
             }
             res.status(201).json({
@@ -59,12 +59,12 @@ exports.getUserAndLogin = function(req, res) {
         }
 
         if(!user){
-          res.status(404).json({message: 'Usuário e/ou senha inválidos'});
+          res.status(404).json({error: 'Usuário e/ou senha inválidos'});
           return;
         }
 
         if(user.length > 0 && user.senha === md5(req.body.senha + global.HASH_CODE)){
-          res.status(401).json({message: 'Usuário e/ou senha inválidos'});
+          res.status(401).json({error: 'Usuário e/ou senha inválidos'});
           return;
         }
 
@@ -98,7 +98,7 @@ exports.seachUser = function(req, res) {
        _id: userId
     }, function(error, user) {
         if (error) {
-            res.status(500).json(error);
+            res.status(500).json({ error: "Não existe nenhum usuário com esse ID"});
             return;
         }
 

@@ -1,6 +1,5 @@
 var express = require('express');
 var userController = require('../controllers/userController');
-var accountController = require('../controllers/accountController');
 var auth = require('../security/auth.js');
 
 var router = express.Router();
